@@ -9,10 +9,10 @@
 
 class Fanout
 {
+	private static $pub = null;
 	public $realm = null;
 	public $key = null;
 	public $ssl = null;
-	public $pub = null;	
 
     public function __construct($realm, $key, $ssl=true)
 	{
@@ -46,19 +46,19 @@ class Fanout
 	// TODO: Use thread variable.
 	private function get_pubcontrol()
 	{
-		if (is_null($this->pub))
+		if (is_null(self::$pub))
 		{
 			$scheme = null;
 			if ($this->ssl)
 				$scheme = 'https';
 			else
 				$scheme = 'http';
-			$this->pub = new PubControlClient(
+			self::$pub = new PubControlClient(
 					"{$scheme}://api.fanout.io/realm/" . "{$this->realm}");
-			$this->pub->set_auth_jwt(array('iss' => $this->realm),
+			self::$pub->set_auth_jwt(array('iss' => $this->realm),
 					base64_decode($this->key));
 		}
-		return $this->pub;
+		return self::$pub;
 	}
 }
 ?>
