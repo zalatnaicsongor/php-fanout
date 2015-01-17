@@ -24,10 +24,11 @@ Installation
 
 Using Composer: 'composer require fanout/pubcontrol' 
 
-Manual: ensure that php-jwt php-pubcontrol have been included and require the following files in php-fanout:
+Manual: ensure that php-jwt and php-pubcontrol have been included and require the following files in php-fanout:
 
 ```PHP
-
+require 'php-fanout/src/jsonobjectformat.php';
+require 'php-fanout/src/fanout.php';
 ```
 
 Usage
@@ -36,5 +37,11 @@ Usage
 ```PHP
 <?php
 
+require 'vendor/autoload.php';
+
+$fanout = new Fanout('<realm>', '<realmkey>');
+$fanout->publish('<channel>', 'Test publish!');
+$fanout->publish_async('<channel>', 'Test async publish!', null, null,
+        'callback');
 ?>
 ```
