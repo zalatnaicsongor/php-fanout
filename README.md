@@ -22,7 +22,7 @@ Requirements
 Installation
 ------------
 
-Using Composer: 'composer require fanout/pubcontrol' 
+Using Composer: 'composer require fanout/fanout' 
 
 Manual: ensure that php-jwt and php-pubcontrol have been included and require the following files in php-fanout:
 
