@@ -46,8 +46,6 @@ Usage
 ```PHP
 <?php
 
-require 'vendor/autoload.php';
-
 $fanout = new Fanout('<realm>', '<realmkey>');
 $fanout->publish('<channel>', 'Test publish!');
 $fanout->publish_async('<channel>', 'Test async publish!', null, null,
