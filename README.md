@@ -17,7 +17,7 @@ Requirements
 * curl
 * pthreads (required for asynchronous publishing)
 * firebase/php-jwt >=1.0.0 (retreived automatically via Composer)
-* fanoug/php-pubcontrol >=1.0.4 (retreived automatically via Composer)
+* fanout/php-pubcontrol >=1.0.6 (retreived automatically via Composer)
 
 Installation
 ------------
