@@ -14,7 +14,7 @@ class Fanout
 	public $key = null;
 	public $ssl = null;
 
-    public function __construct($realm, $key, $ssl=true)
+	public function __construct($realm, $key, $ssl=true)
 	{
 		$this->realm = $realm;
 		$this->key = $key;

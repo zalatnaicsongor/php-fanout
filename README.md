@@ -48,7 +48,9 @@ Usage
 
 $fanout = new Fanout('<realm>', '<realmkey>');
 $fanout->publish('<channel>', 'Test publish!');
-$fanout->publish_async('<channel>', 'Test async publish!', null, null,
-        'callback');
+
+// Use publish_async for async publishing only if pthreads are installed:
+// $fanout->publish_async('<channel>', 'Test async publish!', null, null,
+//         'callback');
 ?>
 ```
