@@ -14,7 +14,7 @@
 // automatically be called when the calling program exits.
 class Fanout
 {
-    private static $pub = null;
+    public static $pub = null;
     public $realm = null;
     public $key = null;
     public $ssl = null;
