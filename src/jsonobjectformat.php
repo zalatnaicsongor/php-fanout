@@ -7,20 +7,24 @@
     :copyright: (c) 2015 by Fanout, Inc.
     :license: MIT, see LICENSE for more details. */
 
+// The JSON object format used for publishing messages to Fanout.io.
 class JsonObjectFormat extends Format
 {
     private $value = null;
 
+    // Initialize with a value representing the message to be sent.
     public function __construct($value)
     {
         $this->value = $value;
     }
 
+    // The name of the format.
     public function name()
     {
         return 'json-object';
     }
 
+    // The method used to export the format data.
     public function export()
     {
         return $this->value;
