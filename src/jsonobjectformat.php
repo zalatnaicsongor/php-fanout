@@ -7,8 +7,10 @@
     :copyright: (c) 2015 by Fanout, Inc.
     :license: MIT, see LICENSE for more details. */
 
+namespace Fanout;
+
 // The JSON object format used for publishing messages to Fanout.io.
-class JsonObjectFormat extends Format
+class JsonObjectFormat extends \PubControl\Format
 {
     private $value = null;
 

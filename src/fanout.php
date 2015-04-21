@@ -7,6 +7,8 @@
     :copyright: (c) 2015 by Fanout, Inc.
     :license: MIT, see LICENSE for more details. */
 
+namespace Fanout;
+
 // The Fanout class is used for publishing messages to Fanout.io and is
 // configured with a Fanout.io realm and associated key. SSL can either
 // be enabled or disabled. Note that unlike the PubControl class
@@ -35,8 +37,8 @@ class Fanout
     public function publish($channel, $data, $id=null, $prev_id=null)
     {
         $pub = $this->get_pubcontrol();
-        $pub->publish($channel, new Item(new JsonObjectFormat($data),
-                $id, $prev_id));
+        $pub->publish($channel, new \PubControl\Item(
+                new JsonObjectFormat($data), $id, $prev_id));
     }
 
     // Asynchronously publish the specified data to the specified channel for
@@ -48,8 +50,8 @@ class Fanout
             $callback=null)
     {
         $pub = $this->get_pubcontrol();
-        $pub->publish_async($channel, new Item(new JsonObjectFormat($data),
-                $id, $prev_id), $callback);
+        $pub->publish_async($channel, new \PubControl\Item(
+                new JsonObjectFormat($data), $id, $prev_id), $callback);
     }
 
     // The finish method is a blocking method that ensures that all asynchronous
@@ -75,7 +77,7 @@ class Fanout
                 $scheme = 'https';
             else
                 $scheme = 'http';
-            self::$pub = new PubControlClient(
+            self::$pub = new \PubControl\PubControlClient(
                     "{$scheme}://api.fanout.io/realm/" . "{$this->realm}");
             self::$pub->set_auth_jwt(array('iss' => $this->realm),
                     base64_decode($this->key));

@@ -46,7 +46,7 @@ Usage
 ```PHP
 <?php
 
-$fanout = new Fanout('<realm>', '<realmkey>');
+$fanout = new Fanout\Fanout('<realm>', '<realmkey>');
 $fanout->publish('<channel>', 'Test publish!');
 
 // Use publish_async for async publishing only if pthreads are installed:
