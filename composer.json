@@ -9,6 +9,12 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "http://github.com/zalatnaicsongor/php-pubcontrol"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": ">=5.3.0",
